@@ -11,7 +11,7 @@ from tqdm import tqdm
 DOWNLOAD_URL = "https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip"
 
 try:
-    if(sys.argv.index("--use-ghproxy")):
+    if sys.argv.index("--use-ghproxy"):
         logger.info("Using Ghproxy.com for speed up")
         DOWNLOAD_URL = "https://ghproxy.com/" + DOWNLOAD_URL
 except:
@@ -20,7 +20,7 @@ except:
 AGREE_LICENSE = False
 
 try:
-    if(sys.argv.index("-y")):
+    if sys.argv.index("-y"):
         logger.info(
             "You already argee the license.See https://github.com/openvpi/vocoders/releases/tag/nsf-hifigan-v1 for more information."
         )
@@ -33,7 +33,7 @@ def main(target_dir: str = "checkpoints"):
     target_dir.mkdir(parents=True, exist_ok=True)
 
     # Show license Information
-    if(!AGREE_LICENSE):
+    if not AGREE_LICENSE:
         logger.info("NSF HifiGan (OpenVPI) is released under the CC BY-NC-SA 4.0 license.")
         logger.info(
             "See https://github.com/openvpi/vocoders/releases/tag/nsf-hifigan-v1 for more information."
